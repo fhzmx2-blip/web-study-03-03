@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="table.css">
+<style type="text/css">
+h3 {
+	text-align: center;
+}
+
+table {
+	margin: 0px auto;
+}
+</style>
+</head>
+<body>
+	<h3>회원 가입</h3>
+	<table id="table_content" width=600>
+		<tbody>
+			<tr>
+				<th width=15%>id</th>
+				<td width=85%>
+				<input type=text size=20><input
+					type="button" value="중복 체크"></td>
+			</tr>
+			<tr>
+				<th width=15%>pwd</th>
+				<td width=85%>
+				<input type=password size=20> <input
+					type=password size=20 placeholder="재입력"></td>
+			</tr>
+			<tr>
+				<th width=15%>이름</th>
+				<td width=85%>
+				<input type=text size=20></td>
+			</tr>
+			<tr>
+				<th width=15%>성별</th>
+				<td width=85%>
+				<input type="radio" name=sex checked>남자 <input
+					type="radio" name=sex>여자</td>
+			</tr>
+			<tr>
+				<th width=15%>나이</th>
+				<td width=85%>
+				<input type="number" min="10" max="100"></td>
+			</tr>
+			<tr>
+				<th width=15%>생년월일</th>
+				<td width=85%>
+				<input type=date size=30></td>
+			</tr>
+			<tr>
+				<th width=15%>e-mail</th>
+				<td width=85%>
+				<input type=text size=45></td>
+			</tr>
+			<tr>
+				<th width=15%>우편번호</th>
+				<td width=85%>
+				<input type=text size=7></td>
+			</tr>
+			<tr>
+				<th width=15%>주소</th>
+				<td width=85%>
+				<input type=text size=45 readonly></td>
+			</tr>
+			<tr>
+				<th width=15%>상세주소</th>
+				<td width=85%>
+				<input type=text size=45></td>
+			</tr>
+			<tr>
+				<th width=15%>전화</th>
+				<td width=85%>
+				<select>
+					<option>010</option>
+				</select>
+				&nbsp;
+				<input type=text size=15>
+				</td>
+			</tr>
+			<tr>
+				<th width=15%>취미</th>
+				<td width=85%>
+				<input type = "checkbox">여행
+				<input type = "checkbox">낚시
+				<input type = "checkbox">게임
+				<input type = "checkbox">독서
+				</td>
+			</tr>
+			<tr>
+				<th width=15%>사진</th>
+				<td width=85%>
+				<input type = file size=30>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type = submit value="회원가입">
+					<input type = button value="취소">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

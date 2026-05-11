@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+a {
+	display: block;
+}
+a[href='http://www.java.com']{
+color:red;
+}
+a[href^='http']{
+	color:orange;
+}
+a[href$='net']{
+	color:magenta;
+}
+a[href*="www"]{
+  color:black;
+}
+input[type='text']{
+  border-radius: 20px;
+}
+input[type='password']{
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+	
+	<a href="http://www.java.com">자바</a>
+	<a href="https://www.oracle.net">오라클</a>
+	<a href="www.html.com">html</a>
+	<a href="http://www.css.net">css</a>
+	<a href="http://javascript.co.kr">자바스크립트</a>
+</body>
+</html>
