@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#a:active, #b:active, #c:active{
+	color:red;
+}
+#a:hover, #b:hover, #c:hover{
+	color:grey;
+}
+input:enabled{
+	background: yellow;
+}
+input:disabled{
+	background: black;
+}
+input:focus{
+	background: white;
+}
+input[type="checkbox"]:checked{
+	box-shadow: 0 0 0 3px hotpink;
+}
+</style>
+</head>
+<body>
+	<h1>:active, :hover</h1>
+	<h3 id="a">HTML / CSS</h3>
+	<h3 id="b">HTML5 / CSS3</h3>
+	<h3 id="c">JavaScript ES6.0</h3>
+	<h1>:focus, :endabled, :disabled, :checked(상태 선택자):input</h1>
+	<input type=text size=30><p>
+	<input type=text size=30 disabled><p>
+	<input type="checkbox" checked>취미<p>
+</body>
+</html>

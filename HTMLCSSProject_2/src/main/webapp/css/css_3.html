@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+img{
+	width: 200px;
+	height: 200px;
+}
+.aaa>img {
+	border-radius: 20px;
+}
+.bbb > img{
+border-radius: 50px;
+}
+.ccc > img{
+border-radius: 80px;
+}
+div > p+h1{
+	background: rgb(0,255,255);
+	color: green;
+}
+div span h1{
+	background: #8FA8CC;
+}
+div> p~h1{
+	background: #B7F0B1
+}
+</style>
+</head>
+<body>
+	<div class="aaa">
+		<img src="../img/m1.jpg">
+	</div>
+	<div class="bbb">
+		<img src="../img/m2.jpg">
+	</div>
+	<div class="ccc">
+		<img src="../img/m3.jpg">
+	</div>
+	<div class="aaa">
+		<img src="../img/m4.jpg">
+	</div>
+	<div class="bbb">
+		<img src="../img/m5.jpg">
+	</div>
+	<div class="ccc">
+		<img src="../img/m6.jpg">
+	</div>
+	<div class="aaa">
+		<img src="../img/m7.jpg">
+	</div>
+	<hr>
+	<div>
+		<p>hello css</p>
+		<h1>형제 1</h1>
+		<h1>형제 2</h1>
+		<span>
+			<h1>후손 1</h1>
+		</span>
+	</div>
+</body>
+</html>

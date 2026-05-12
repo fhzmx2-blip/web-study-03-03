@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+input{
+	margin-top: 20px;
+}
+input[type="text"],input[type="password"]{
+	width: 200px;
+	height: 30px;
+}
+input[type="file"],input[type="range"],input[type="number"],input[type="date"]{
+	width: 300px;
+	height: 30px;
+}
+input[type="submit"],input[type="button"]{
+	width: 100px;
+	height: 30px;
+	border-radius: 10px;
+}
+img{
+	width: 200px;
+	height: 200px;
+}
+
+img[src*="m1"],img[src*="m2"]{
+	border-radius:20px;
+}
+img[src*="m3"],img[src*="m4"]{
+	border-radius:50px;
+}
+img[src*="m5"]{
+	border-radius:100px;
+}
+a {
+	display: block;
+}
+a[href^="aaa"]{
+	color: magenta;
+	text-decoration: none;
+}
+a[href^="bbb"]{
+	color: orange;
+	text-decoration: none;
+}
+a[href$="htm"]{
+	color: blue;
+	text-decoration: none;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('img[src*="m2"]').click(function(){
+		alert("이미지 선택")
+	})
+})
+</script>
+</head>
+<body>
+	<input type="text"><br>
+	<input type="password"><br>
+	<!-- 200 -->
+	<input type="file"><br>
+	<input type="range" min="1" max="100"><br>
+	<input type="number" min="1" max="100"><br>
+	<input type="date"><br>
+	<!-- 300 -->
+	<input type="submit" value="전송"><br>
+	<input type="button" value="취소"><br>
+	<!-- 100 -->
+	<img src="../img/m1.jpg">
+	<img src="../img/m2.jpg">
+	<img src="../img/m3.jpg">
+	<img src="../img/m4.jpg">
+	<img src="../img/m5.jpg">
+	<hr>
+	<a href="aaa.html">파일 이동</a>
+	<a href="aaa1.html">파일 이동</a>
+	<a href="bbb.html">파일 이동</a>
+	<a href="bbb.htm">파일 이동</a>
+</body>
+</html>
