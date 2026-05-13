@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let i=0;
+$(function(){
+	$('a').click(function() {
+		if(i==0){
+			$('a').text("닫기")
+			i=1;
+			$('div').show();
+		}
+		else{
+			$('a').text("더보기")
+			i=0;
+			$('div').hide();
+		}
+	})
+})
+</script>
+</head>
+<body>
+	<pre>
+	아무 말아무 말아무 말아무 말아무 말아무 말아무 말아무 말아무 말
+	아무 말아무 말아무 말아무 말아무 말아무 말아무 말아무 말아무 말
+	아무 말아무 말아무 말
+	아무 말아무 말아무 말아무 말아무 말아무 말아무 말
+	아무 말
+	<a href="#">더보기</a>
+	<div style="display:none">
+	아무 말아무 말아무 말아무 말아무 말아무 말아무 말
+	아무 말아무 말아무 말아무 말아무 말아무 
+	말아무 말아무 말아무 말아무 말아무 말
+	</div></pre>
+</body>
+</html>
