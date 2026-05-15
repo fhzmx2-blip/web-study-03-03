@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family: sans-serif;
+	margin: 20px;
+}
+
+h2 {
+	margin-top: 40px;
+	border-bottom: 2px solid #333;
+	padding-bottom: 5px;
+}
+
+.container {
+	margin: 15px 0px;
+	border: 2px dashed grey;
+	padding: 10px;
+	width: 400px;
+	min-height: 80px;
+}
+
+.box {
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+	margin: 5px;
+	line-height: 50px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	border-radius: 8px;
+}
+
+.red {
+	background-color: red;
+}
+
+.green {
+	background-color: green;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.none {
+	display: none;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.opacity0 {
+	opacity: 0.0;
+}
+.obox{
+	width: 180px;
+	height: 100px;
+	border: 2px solid black;
+	margin: 10px;
+	padding: 5px;
+	background: #f0f0f0;
+}
+.visible{
+	overflow: visible;
+}
+.ohidden{
+	overflow: hidden;
+}
+.scroll{
+	overflow: scroll;
+}
+.auto{
+	overflow: auto;
+}
+.z-container{
+	position: relatice;
+	width: 200px;
+	height: 200px;
+	border: 2px solid black;
+	margin: 10px;
+}
+.z-box{
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	opacity: 0.8;
+}
+.red-z{
+	background: red;
+	z-index: 10;
+	left:60px;
+	top:60px;
+}
+.green-z{
+	background: green;
+	z-index: 5;
+	left:80px;
+	top:80px;
+}
+.blue-z{
+	background: blue;
+	z-index: 1;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('.hidden').click(function() {
+			alert("hidden은 이벤트가 발생한다")
+		})
+		$('.opacity0').click(function() {
+			alert("opacity0은 이벤트가 발생한다")
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>CSS 가시 속성</h1>
+	<h2>1. display:none</h2>
+	<div class="container">
+		<div class="box red">A</div>
+		<div class="box green none">B</div>
+		<div class="box blue">C</div>
+	</div>
+	<h2>2. visibility:hidden</h2>
+	<div class="container">
+		<div class="box red">A</div>
+		<div class="box green hidden">B</div>
+		<div class="box blue">C</div>
+	</div>
+	<h2>3. opacity:0.0</h2>
+	<div class="container">
+		<div class="box red">A</div>
+		<div class="box green opacity0">B</div>
+		<div class="box blue">C</div>
+	</div>
+	<h2>4. overflow</h2>
+	<div class="container">
+		<div class="obox visible">
+			<b>overflow:visible</b><br>
+			책상 위에 놓인 식은 커피 한 잔과 멀리서 들려오는 자동차 경적 소리가 일상의 배경음이 되어줍니다. 바쁘게 돌아가는 세상 속에서도 잠시 숨을 고르며 주변을 둘러보는 여유가 필요한 법입니다.
+		</div>
+		<div class="obox ohidden">
+			<b>overflow:hidden</b><br>
+			책상 위에 놓인 식은 커피 한 잔과 멀리서 들려오는 자동차 경적 소리가 일상의 배경음이 되어줍니다. 바쁘게 돌아가는 세상 속에서도 잠시 숨을 고르며 주변을 둘러보는 여유가 필요한 법입니다.
+		</div>
+		<div class="obox scroll">
+			<b>overflow:scroll</b><br>
+			책상 위에 놓인 식은 커피 한 잔과 멀리서 들려오는 자동차 경적 소리가 일상의 배경음이 되어줍니다. 바쁘게 돌아가는 세상 속에서도 잠시 숨을 고르며 주변을 둘러보는 여유가 필요한 법입니다.
+		</div>
+		<div class="obox auto">
+			<b>overflow:auto</b><br>
+			책상 위에 놓인 식은 커피 한 잔과 멀리서 들려오는 자동차 경적 소리가 일상의 배경음이 되어줍니다. 바쁘게 돌아가는 세상 속에서도 잠시 숨을 고르며 주변을 둘러보는 여유가 필요한 법입니다.
+		</div>
+	</div>
+	<h2>5. z-index</h2>
+	<div class="z-container">
+		<div class="z-box red-z">A</div>
+		<div class="z-box green-z">B</div>
+		<div class="z-box blue-z">C</div>
+	</div>
+</body>
+</html>
