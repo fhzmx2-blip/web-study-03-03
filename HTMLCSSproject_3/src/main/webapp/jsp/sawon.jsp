@@ -6,7 +6,7 @@
 	JSP (Java Server Page)
 --%>
 <%
-	EmpDAO dao = new EmpDAO();
+EmpVO dao = new EmpVO();
 	List<EmpVO> list=dao.empListData();
 %>
 <!DOCTYPE html>

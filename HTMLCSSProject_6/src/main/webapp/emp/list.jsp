@@ -2,15 +2,14 @@
 	pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*"%>
 <%@ page import="java.text.*"%>
 <%
-
-	String strPage = request.getParameter("page");
+String strPage = request.getParameter("page");
 
 	if (strPage == null)
 		strPage = "1";
 
 	int curpage = Integer.parseInt(strPage);
 
-	EmpDAO dao = new EmpDAO();
+	EmpVO dao = new EmpVO();
 	List<EmpVO> list = dao.boardListData(curpage);
 
 	int count = dao.boardRowCount();
