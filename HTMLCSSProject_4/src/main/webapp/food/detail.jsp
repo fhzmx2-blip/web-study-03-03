@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8" import="com.sist.dao.*"%>
 <%
 String no = request.getParameter("no");
-FoodDAO dao = new FoodDAO();
-FoodVO vo = dao.foodDetailData(Integer.parseInt(no));
+BoardDAO dao = new BoardDAO();
+BoardVO vo = dao.foodDetailData(Integer.parseInt(no));
 %>
 <!DOCTYPE html>
 <html>

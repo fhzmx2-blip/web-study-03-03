@@ -3,7 +3,7 @@
     pageEncoding="UTF-8" import="com.sist.model.*" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%
-	FoodModel model=new FoodModel();
+FoodModel model=new FoodModel();
 	model.foodList(request);
 %>
 <!DOCTYPE html>

@@ -7,10 +7,10 @@
    오라클에 있는 데이터 읽기 
  --%>
 <%
-   int curpage=1;
+int curpage=1;
    
    // 자바 코딩 위치 
-   FoodDAO dao=new FoodDAO();
+   BoardDAO dao=new BoardDAO();
    List<FoodVO> list=dao.foodListData(curpage);
    int totalpage=dao.foodTotalPage();
 %>

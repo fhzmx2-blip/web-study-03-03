@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist.dao.*"%>
 <%
-	String no=request.getParameter("no");
-	FoodDAO dao=FoodDAO.newInstance();
-	FoodVO vo=dao.foodDetailData(Integer.parseInt(no));
+String no=request.getParameter("no");
+	BoardDAO dao=BoardDAO.newInstance();
+	BoardVO vo=dao.foodDetailData(Integer.parseInt(no));
 %>
 <!DOCTYPE html>
 <html>

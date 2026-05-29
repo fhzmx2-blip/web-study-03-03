@@ -1,6 +1,7 @@
-<%@page import="com.sist.dao.FoodVO"%>
+<%@page import="com.sist.dao.*"%>
+
 <%@page import="java.util.List"%>
-<%@page import="com.sist.dao.FoodDAO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -56,7 +57,7 @@ img {
 		<div class="row">
 			<!-- 출력하는 영역 -->
 			<%
-				for (FoodVO vo : list) {
+			for (FoodVO vo : list) {
 			%>	
 			<div class="col-md-3">
 				<div class="thumbnail">

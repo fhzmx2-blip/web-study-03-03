@@ -10,8 +10,8 @@ String strPage = request.getParameter("page");
 if (strPage == null)
 	strPage = "1";
 int curpage = Integer.parseInt(strPage);
-FoodDAO dao = FoodDAO.newInstance();
-List<FoodVO> list = dao.foodListData(curpage);
+BoardDAO dao = BoardDAO.newInstance();
+List<BoardVO> list = dao.foodListData(curpage);
 int totalpage = dao.foodTotalPage();
 
 // 블록별로 (데이터가 많은 경우) = 크롤링한 데이터 
@@ -21,7 +21,7 @@ if (endPage > totalpage)
 	endPage = totalpage;
 
 // 쿠키를 읽어서 출력 
-List<FoodVO> cList = new ArrayList();
+List<BoardVO> cList = new ArrayList();
 
 Cookie[] cookies = request.getCookies();
 if (cookies != null) {
@@ -30,7 +30,7 @@ if (cookies != null) {
 		if (cookies[i].getName().startsWith("food_")) {
 	String value = cookies[i].getValue();
 	// value ==> no
-	FoodVO vo = dao.foodDetailData(Integer.parseInt(value));
+	BoardVO vo = dao.foodDetailData(Integer.parseInt(value));
 	cList.add(vo);
 		}
 
@@ -59,7 +59,7 @@ p {
 	<div class="container" style="margin-top: 20px">
 		<div class="row">
 			<%
-			for (FoodVO vo : list) {
+			for (BoardVO vo : list) {
 			%>
 			<div class="col-md-3">
 				<div class="thumbnail">
@@ -86,7 +86,7 @@ p {
 			<ul class="pagination">
 				<%
 				if (startPage > 1) // 1 11-1 => 10
-				{
+						{
 				%>
 				<li><a href="main.jsp?page=<%=startPage - 1%>">&laquo;</a></li>
 				<%
@@ -113,7 +113,7 @@ p {
 				<h3>최근 방문 맛집</h3>
 				<div class="recent-list">
 					<%
-					for (FoodVO vo : cList) {
+					for (BoardVO vo : cList) {
 					%>
 					<a class="recent-card"
 						href="../main/main.jsp?mode=2&no=<%=vo.getNo()%>">

@@ -21,9 +21,9 @@ if (strPage == null)
 // 1. 현재 페이지 
 int curpage = Integer.parseInt(strPage);
 // 2. DAO 객체 생성 
-FoodDAO dao = FoodDAO.newInstance();
+BoardDAO dao = BoardDAO.newInstance();
 // 3. 출력할 목록을 받는다 
-List<FoodVO> list = dao.foodListData(curpage);
+List<BoardVO> list = dao.foodListData(curpage);
 // 4. 총페이지 받기 
 int totalpage = dao.foodTotalPage();
 %>
@@ -55,7 +55,7 @@ p {
 	<div class="container">
 		<div class="row">
 			<%
-			for (FoodVO vo : list) {
+			for (BoardVO vo : list) {
 			%>
 			<div class="col-md-3">
 				<div class="thumbnail">

@@ -4,17 +4,17 @@
 	pageEncoding="UTF-8"%>
 	
 <%
-    FoodDAO dao = new FoodDAO();
-    String type = request.getParameter("type");
-    if(type == null) type = "한식";
+	BoardDAO dao = new BoardDAO();
+		    String type = request.getParameter("type");
+		    if(type == null) type = "한식";
 
-    String strPage = request.getParameter("page");
-    if(strPage == null) strPage = "1";
-    int curpage = Integer.parseInt(strPage);
+		    String strPage = request.getParameter("page");
+		    if(strPage == null) strPage = "1";
+		    int curpage = Integer.parseInt(strPage);
 
-    List<FoodVO> list = dao.foodListData(curpage, type);
-    int totalpage = dao.foodTotalPage(type);
-%>
+		    List<BoardVO> list = dao.foodListData(curpage, type);
+		    int totalpage = dao.foodTotalPage(type);
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,9 @@ p {
 				href="list.jsp?type=분식" class="btn btn-lg btn-primary">분식</a>
 		</div>
 		<div class="row text-center">
-		<%for(FoodVO vo:list){ %>
+		<%
+		for(BoardVO vo:list){
+		%>
 			<div class="col-md-3">
 				<div class="thumbnail">
 					<a href="detail.jsp?no=<%=vo.getNo()%>"> 

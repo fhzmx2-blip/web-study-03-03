@@ -2,13 +2,12 @@
 	pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*"%>
 
 <%
-
 String strPage = request.getParameter("page");
 if (strPage == null)
 	strPage = "1";
 int curpage = Integer.parseInt(strPage);
-FoodDAO dao = new FoodDAO();
-List<FoodVO> list = dao.foodListData(curpage);
+BoardDAO dao = new BoardDAO();
+List<BoardVO> list = dao.foodListData(curpage);
 int totalpage = dao.foodTotalPage();
 
 final int BLOCK = 10;
@@ -49,7 +48,7 @@ p {
 		<div class="row">
 			<!-- 출력하는 영역 -->
 			<%
-			for (FoodVO vo : list) {
+			for (BoardVO vo : list) {
 			%>
 			<div class="col-md-3">
 				<!-- 숫자합 12가 되면 자동으로 다음줄로 내려간다 -->
