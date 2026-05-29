@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sawon>
+	<list>
+		<sabun>1</sabun>
+		<name>홍길동</name>
+		<dept>대리</dept>
+		<loc>서울</loc>
+	</list>
+	<list>
+		<sabun>2</sabun>
+		<name>김길동</name>
+		<dept>과장</dept>
+		<loc>부산</loc>
+	</list>
+</sawon>
