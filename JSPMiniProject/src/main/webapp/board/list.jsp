@@ -62,11 +62,13 @@
 							<c:set var="count" value="${count }" />
 							<c:forEach var="vo" items="${list }">
 								<tr>
-									<td width="10%" class="text-center">${count }</th>
-									<td width="45%" class="text-center">${vo.subject }</th>
-									<td width="15%" class="text-center">${vo.name }</th>
-									<td width="20%" class="text-center">${vo.dbday }</th>
-									<td width="10%" class="text-center">${vo.hit }</th>
+									<td width="10%" class="text-center">${count }</td>
+									<td width="45%" class="text-left">
+										<a href="../board/detail.do?no=${vo.no }">${vo.subject }
+									</td>
+									<td width="15%" class="text-center">${vo.name }</td>
+									<td width="20%" class="text-center">${vo.dbday }</td>
+									<td width="10%" class="text-center">${vo.hit }</td>
 								</tr>
 							<c:set var="count" value="${count-1 }" />
 							</c:forEach>

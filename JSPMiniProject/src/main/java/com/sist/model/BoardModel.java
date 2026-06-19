@@ -1,12 +1,16 @@
 package com.sist.model;
 
-import java.util.List;
+import java.util.*;
+import java.io.*;
+import java.net.URLEncoder;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.*;
+import com.sist.manager.UploadServlet;
 import com.sist.vo.*;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -32,5 +36,47 @@ public class BoardModel {
 		request.setAttribute("main_jsp", "../board/list.jsp");
 		
 		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("board/insert.do")
+	public String board_insert(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("main_jsp", "../board/insert.jsp");
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("board/detail.do")
+	public String board_detail(HttpServletRequest request, HttpServletResponse response) {
+		String no=request.getParameter("no");
+		DataBoardVO vo=DataBoardDAO.boardDetailData(Integer.parseInt(no));
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "../board/detail.jsp");
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("board/download.do")
+	public void board_download(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+			String fn=request.getParameter("fn");
+			ServletContext context=request.getServletContext();
+			String path=context.getRealPath("")+File.separator+"uploads";
+			File file = new File(path+File.separator+fn);
+			response.setHeader("Content-Disposition","attachment;filename="
+							+URLEncoder.encode(fn, "UTF-8"));
+			response.setContentLength((int)file.length());
+			
+			BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+			BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
+			
+			byte[] buffer=new byte[1024];
+			int i=0;
+			while((i=bis.read(buffer,0,1024))!=-1) {
+				bos.write(buffer,0,i);
+			}
+			bis.close();
+			bos.close();
+			
+					
+		} catch (Exception ex) {}
 	}
 }
