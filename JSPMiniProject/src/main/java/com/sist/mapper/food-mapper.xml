@@ -26,4 +26,10 @@
 		WHERE address LIKE '%'||#{address}||'%'
 		AND rownum&lt;=7
 	</select>
+	<select id="foodCategoryData" resultType="FoodVO" parameterType="String">
+		SELECT no,name,poster, type
+		FROM food
+		WHERE type LIKE '%'||#{type}||'%'
+		ORDER BY no ASC
+	</select>
 </mapper>

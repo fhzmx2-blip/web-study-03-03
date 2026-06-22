@@ -42,4 +42,12 @@ public class FoodDAO {
 		session.close();
 		return list;
 	}
+	
+	public static List<FoodVO> foodCategoryData(String type){
+		SqlSession session=ssf.openSession();
+		List<FoodVO> list=session.selectList("foodCategoryData",type);
+		session.close();
+		return list;
+	}
+	
 }
