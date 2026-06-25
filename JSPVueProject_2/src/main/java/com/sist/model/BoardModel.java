@@ -66,4 +66,21 @@ public class BoardModel {
 		
 		BoardDAO.boardInsert(vo);
 	}
+	
+	@RequestMapping("board/detail.do")
+	public String board_detail(HttpServletRequest request, HttpServletResponse response) {
+		return "../board/detail.jsp";
+	}
+	
+	@RequestMapping("board/detail_vue.do")
+	public void board_detail_vue(HttpServletRequest request, HttpServletResponse response) {
+		String no=request.getParameter("no");
+		BoardVO vo=BoardDAO.boardDetailData(Integer.parseInt(no));
+		try {
+			ObjectMapper mapper=new ObjectMapper();
+			String json=mapper.writeValueAsString(vo);
+			PrintWriter out = response.getWriter();
+			out.write(json);
+		} catch (Exception ex) {}
+	}
 }

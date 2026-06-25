@@ -31,7 +31,7 @@
 		<include refid="where-no"/>
 	</update>
 	
-	<select id="boardDetailData" resultType="boardVO" parameterType="int">
+	<select id="boardDetailData" resultType="BoardVO" parameterType="int">
 		SELECT no,name,subject,content,hit,TO_CHAR(regdate,'yyyy-mm-dd hh24:mi:ss') as dbday
 		FROM jspboard
 		WHERE no=#{no}

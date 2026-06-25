@@ -41,4 +41,13 @@ public class BoardDAO {
 		session.commit();
 		session.close();
 	}
+	
+	public static BoardVO boardDetailData(int no) {
+		SqlSession session=ssf.openSession();
+		session.update("hitIncrement", no);
+	    session.commit();
+		BoardVO vo=session.selectOne("boardDetailData", no);
+		session.close();
+		return vo;
+	}
 }
