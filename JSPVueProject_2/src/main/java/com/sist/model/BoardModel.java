@@ -43,44 +43,114 @@ public class BoardModel {
 			response.setContentType("text/plain;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.write(json);
-		} catch (Exception ex) {}
+		} catch (Exception ex) {
+		}
 	}
-	
+
 	@RequestMapping("board/insert.do")
 	public String board_insert(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		return "../board/insert.jsp";
 	}
-	
+
 	@RequestMapping("board/insert_ok.do")
 	public void board_insert_ok(HttpServletRequest request, HttpServletResponse response) {
-		String name=request.getParameter("name");
-		String subject=request.getParameter("subject");
-		String content=request.getParameter("content");
-		String pwd=request.getParameter("pwd");
-		BoardVO vo=new BoardVO();
+		String name = request.getParameter("name");
+		String subject = request.getParameter("subject");
+		String content = request.getParameter("content");
+		String pwd = request.getParameter("pwd");
+		BoardVO vo = new BoardVO();
 		vo.setName(name);
 		vo.setSubject(subject);
 		vo.setContent(content);
 		vo.setPwd(pwd);
-		
+
 		BoardDAO.boardInsert(vo);
 	}
-	
+
 	@RequestMapping("board/detail.do")
 	public String board_detail(HttpServletRequest request, HttpServletResponse response) {
 		return "../board/detail.jsp";
 	}
-	
+
 	@RequestMapping("board/detail_vue.do")
 	public void board_detail_vue(HttpServletRequest request, HttpServletResponse response) {
-		String no=request.getParameter("no");
-		BoardVO vo=BoardDAO.boardDetailData(Integer.parseInt(no));
+		String no = request.getParameter("no");
+		BoardVO vo = BoardDAO.boardDetailData(Integer.parseInt(no));
 		try {
-			ObjectMapper mapper=new ObjectMapper();
-			String json=mapper.writeValueAsString(vo);
+			ObjectMapper mapper = new ObjectMapper();
+			String json = mapper.writeValueAsString(vo);
 			PrintWriter out = response.getWriter();
 			out.write(json);
+		} catch (Exception ex) {
+		}
+	}
+
+	@RequestMapping("board/delete_vue.do")
+	public void board_delete_vue(HttpServletRequest request, HttpServletResponse response) {
+		String no = request.getParameter("no");
+		String pwd = request.getParameter("pwd");
+		boolean bCheck = BoardDAO.boardDelete(Integer.parseInt(no), pwd);
+
+		try {
+			response.setContentType("text/plain;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+
+			if (bCheck) {
+				out.write("yes");
+			} else {
+				out.write("no");
+			}
+		} catch (Exception ex) {
+		}
+	}
+
+	@RequestMapping("board/update.do")
+	public String board_update(HttpServletRequest request, HttpServletResponse response) {
+		return "../board/update.jsp";
+	}
+
+	@RequestMapping("board/update_vue.do")
+	public void board_update_vue(HttpServletRequest request, HttpServletResponse response) {
+		String no = request.getParameter("no");
+
+		BoardVO vo = BoardDAO.boardDetailData(Integer.parseInt(no));
+
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			String json = mapper.writeValueAsString(vo);
+
+			response.setContentType("text/plain;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.write(json);
+		} catch (Exception ex) {}
+	}
+	
+	@RequestMapping("board/update_ok.do")
+	public void board_update_ok(HttpServletRequest request, HttpServletResponse response) {
+		String name = request.getParameter("name");
+		String subject = request.getParameter("subject");
+		String content = request.getParameter("content");
+		String pwd = request.getParameter("pwd");
+		String no = request.getParameter("no");
+		BoardVO vo = new BoardVO();
+		vo.setName(name);
+		vo.setSubject(subject);
+		vo.setContent(content);
+		vo.setPwd(pwd);
+		vo.setNo(Integer.parseInt(no));
+		
+		String msg="no";
+		boolean bCheck=BoardDAO.boardUpdate(vo);
+		if(bCheck==true) {
+			msg="yes";
+		}
+		
+		try {
+		
+			response.setContentType("text/plain;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.write(msg);
 		} catch (Exception ex) {}
 	}
 }

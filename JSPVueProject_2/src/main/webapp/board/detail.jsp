@@ -62,7 +62,7 @@ h3{
 					</tr>
 					<tr>
 						<td colspan="4" class="text-right">
-							<a href="#" class="btn btn-xs btn-warning">수정</a>
+							<a :href="'../board/update.do?no='+no" class="btn btn-xs btn-warning">수정</a>
 							<span class="btn btn-xs btn-warning" @click="btnClick()">{{isOn?'삭제':'취소'}}</span>
 							<a href="../board/list.do" class="btn btn-xs btn-warning">목록</a>
 						</td>

@@ -50,4 +50,35 @@ public class BoardDAO {
 		session.close();
 		return vo;
 	}
+	
+	public static boolean boardDelete(int no, String pwd) {
+		boolean bCheck=false;
+		SqlSession session=ssf.openSession(true);
+		String db_pwd=session.selectOne("boardGetPassword",no);
+		if(db_pwd.equals(pwd)) {
+			bCheck=true;
+			session.delete("boardDelete",no);
+		}
+		session.close();
+		return bCheck;
+	}
+	
+	public static BoardVO boardUpdateData(int no) {
+		SqlSession session=ssf.openSession();
+		BoardVO vo=session.selectOne("",no);
+		session.close();
+		return vo;
+	}
+	
+	public static boolean boardUpdate(BoardVO vo) {
+		boolean bCheck=false;
+		SqlSession session=ssf.openSession(true);
+		String db_pwd=session.selectOne("boardGetPassword",vo.getNo());
+		if(db_pwd.equals(vo.getPwd())) {
+			bCheck=true;
+			session.update("boardUpdate",vo);
+		}
+		session.close();
+		return bCheck;
+	}
 }
