@@ -9,24 +9,31 @@
 <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-	<div id="app">
-		<h3>v-once:한번만 렌더링</h3>
-		<h4>{{message}}</h4>
-		<button @click="change">변경</button>
+	<div class="app">
+		<button @click="count++">
+			count
+		</button>
+		
+		<button @click="name='Hong'">
+			이름 변경
+		</button>
+		<div v-memo="[name]">
+			<h3>{{name}}</h3>
+			<h3>{{count}}</h3>
+		</div>
+		
+		<h3>{{name}}</h3>
+		<h3>{{count}}</h3>
 	</div>
 	<script>
 		let app=Vue.createApp({
 			data(){
 				return{
-					message:'Hello View!'
-				}
-			},
-			methods:{
-				change(){
-					this.message="Vue3 v-once"
+					name: 'Shim',
+					count:0
 				}
 			}
-		})
+		}).mount('.app')
 	</script>
 </body>
 </html>

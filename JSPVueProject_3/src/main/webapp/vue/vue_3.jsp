@@ -7,26 +7,25 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<style type="text/css">
+[v-clock]{
+	display:none
+}
+</style>
 </head>
 <body>
-	<div id="app">
-		<h3>v-once:한번만 렌더링</h3>
-		<h4>{{message}}</h4>
-		<button @click="change">변경</button>
+	<div id="app" v-clock>
+		<h3>실행전에 {{}}가 보이는 것을 방지</h3>
+		<h2>{{title}}</h2>
 	</div>
 	<script>
-		let app=Vue.createApp({
-			data(){
-				return{
-					message:'Hello View!'
-				}
-			},
-			methods:{
-				change(){
-					this.message="Vue3 v-once"
-				}
+	let app=Vue.createApp({
+		data(){
+			return{
+				title:'v-clock: 깜빡임 방지'
 			}
-		})
+		}
+	}).mount("#app")
 	</script>
 </body>
 </html>

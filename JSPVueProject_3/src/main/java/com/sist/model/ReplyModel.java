@@ -29,7 +29,9 @@ public class ReplyModel {
 		  String json=mapper.writeValueAsString(list);
 		  
 		  Commons.sendData(response, "text/plain", json);
-	  }catch(Exception ex) {}
+	  }catch(Exception ex) {
+		  ex.printStackTrace();
+	  }
   }
   @RequestMapping("reply/list_vue.do")
   public void reply_list_vue(HttpServletRequest request,
