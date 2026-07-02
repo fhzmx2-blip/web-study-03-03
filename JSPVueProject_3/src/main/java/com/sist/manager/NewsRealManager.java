@@ -1,23 +1,28 @@
 package com.sist.manager;
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.sist.vo.*;
-public class NewsManager {
+import com.sist.vo.NewsVO;
 
-    public static void main(String[] args) {
-		newsFindData("축구");
-	}
-    public static List<NewsVO> newsFindData(String fd) {
-        List<NewsVO> list=new ArrayList<NewsVO>();
+public class NewsRealManager {
+	public static String newsFindData(String fd) {
+        String json="";
     	
     	String clientId = ""; //애플리케이션 클라이언트 아이디
         String clientSecret = ""; //애플리케이션 클라이언트 시크릿
@@ -30,11 +35,11 @@ public class NewsManager {
             throw new RuntimeException("검색어 인코딩 실패",e);
         }
 
-
-        String apiURL = "https://openapi.naver.com/v1/search/news.json?display=100&query=" + text;    // JSON 결과
+        
+        String apiURL = "https://openapi.naver.com/v1/search/news.json?display=20&query=" + text;    // JSON 결과
         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // XML 결과
 
-
+        
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("X-Naver-Client-Id", clientId);
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
@@ -53,29 +58,10 @@ public class NewsManager {
           JSONArray arr=(JSONArray)root.get("items");
           //System.out.println(arr.toJSONString());
           // [{},{},{}...]
-          for(int i=0;i<arr.size();i++)
-          {
-        	  JSONObject obj=(JSONObject)arr.get(i);
-        	  //System.out.println(obj.toJSONString());
-        	  String title=(String)obj.get("title");
-        	  String desc=(String)obj.get("description");
-        	  String link=(String)obj.get("link");
-        	  
-        	  System.out.println(i+1);
-        	  System.out.println(title);
-        	  System.out.println(desc);
-        	  System.out.println(link);
-        	  System.out.println("=======================================");
-              NewsVO vo=new NewsVO();
-              vo.setTitle(title);
-              vo.setDesc(desc);
-              vo.setLink(link);
-              
-              list.add(vo);
-          }
+          json=arr.toJSONString();
         }catch(Exception ex){}
         
-        return list;
+        return json;
     }
 
 

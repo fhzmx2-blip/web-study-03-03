@@ -35,7 +35,8 @@
       <li><a href="../food/list.do">맛집</a></li>
       
       <c:if test="${sessionScope.id!=null }">
-       <li><a href="../chat/find.do">채팅</a></li>
+       <li><a href="../chat/chat.do">채팅</a></li>
+       <li><a href="../news/find.do">뉴스검색</a></li>
        <li><a href="../news/news.do">실시간 뉴스</a></li>
       </c:if>
       
