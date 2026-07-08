@@ -17,7 +17,7 @@
  -->
 <mapper namespace="com.sist.mapper.member-mapper">
   <insert id="memberInsert" parameterType="MemberVO">
-    INSERT INTO member2 VALUES(
+    INSERT INTO member VALUES(
       #{id},
       #{pwd},
       #{name},
@@ -35,13 +35,13 @@
   <!-- ID중복 체크 / 로그인 -->
   <select id="memberIdCheck" resultType="int" parameterType="string">
      SELECT COUNT(*) 
-     FROM member2
+     FROM member
      WHERE id=#{id}
   </select>
   <!-- 비밀번호 검색 -->
   <select id="memberGetPassword" resultType="MemberVO" parameterType="string">
     SELECT id,pwd,name,sex,phone,email,post,addr1,addr2,admin
-    FROM member2
+    FROM member
     WHERE id=#{id}
   </select>
 </mapper>
