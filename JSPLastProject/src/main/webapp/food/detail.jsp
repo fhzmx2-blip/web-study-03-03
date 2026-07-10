@@ -8,13 +8,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/comment.css">
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-4.0.0-rc.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-4.0.0.min.js"></script>
 <script type="text/javascript">
-$(function){
-	if(bCheck===false){
-		bCheck
-	}
+$(function(){
+	let bCheck=false;
+	$('.btns').on('click',function(){
+		let no=$(this).attr('data-no')
+		$('.forms').hide()
+		$('.btns').val('수정')
+		if(bCheck===false)
+		{
+			bCheck=true
+			$('#form'+no).show()
+			$(this).val("취소")
+		}
+		else
+		{
+			bCheck=false
+			$('#form'+no).hide()
+			$(this).val("수정")
+		}
+	})
 })
 </script>
 </head>
@@ -96,7 +110,7 @@ $(function){
                           <tr>
                             <td colspan="3" class="text-right">
                               <c:if test="${sessionScope.id!=null }">
-                               <button class="btn-xs btn-danger">좋아요</button>
+                               <button class="btn-xs btn-danger">좋아요 <span>10</span></button>
                                <button class="btn-xs btn-info">찜하기</button>
                                <c:if test="${vo.reserve!='불가' }">
                                 <button class="btn-xs btn-success">예약하기</button>
@@ -177,12 +191,21 @@ $(function){
                <div class="review-text">${rvo.msg }</div>
                <c:if test="${sessionScope.id==rvo.id }">
                 <div class="review-meta">
-                 <div><input type=button class="btn-xs btn-primary" value="수정"></div>
+                 <div><input type=button class="btn-xs btn-primary btns" value="수정" data-no="${rvo.no }"></div>
                  <div><input type=button class="btn-xs btn-danger" value="삭제"
                    onclick="location.href='../review/delete.do?no=${rvo.no}&fno=${rvo.fno }'"
                  ></div>
                 </div>
                </c:if>
+               <form class="review-form forms" method="post" action="../review/update.do"
+                id="form${rvo.no }" style="display:none"
+               >
+	            <input type="hidden" name=fno value="${vo.no}">
+	            <input type="hidden" name=no value="${rvo.no}">
+	            <input type=text name=msg placeholder="리뷰 입력" required value="${rvo.msg }">
+	            <button type="submit">수정</button>
+	            
+	          </form>
              </li>
             </c:forEach>
           </ul>
