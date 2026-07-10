@@ -12,7 +12,7 @@
       <h3 class="panel-title">전국 맛집</h3>
     </div>
     <ul class="list-group">
-      <li class="list-group-item"><a href="#">맛집 목록</a></li>
+      <li class="list-group-item"><a href="../food/food_main.do">맛집 목록</a></li>
       <li class="list-group-item"><a href="#">맛집 검색</a></li>
       <li class="list-group-item"><a href="#">맛집 추천</a></li>
       <li class="list-group-item"><a href="#">맛집 예약</a></li>

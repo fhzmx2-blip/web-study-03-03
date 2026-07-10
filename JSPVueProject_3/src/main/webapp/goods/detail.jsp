@@ -93,7 +93,7 @@ h3{
                           <button class="btn-xs btn-info" v-if="rvo.id===loginId"
                            @click="deleteReply(rvo.no)"
                           >삭제</button>
-                        </td>
+                        </td> 
                       </tr>
                       <tr>
                         <td colspan="2" style="white-space: pre-wrap;">
