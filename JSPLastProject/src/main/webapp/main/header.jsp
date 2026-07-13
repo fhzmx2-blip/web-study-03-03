@@ -195,7 +195,7 @@
                                 </c:if>
                                 <c:if test="${sessionScope.admin=='y' }">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../mypage/adminpage_main.do">관리자페이지</a>
+                                    <a class="nav-link" href="../adminpage/admin_main.do">관리자페이지</a>
                                 </li>
                                 </c:if>
                                 </c:if>

@@ -56,4 +56,32 @@ public class ReviewDAO {
     	 session.delete("reviewDelete",no);
     	 session.close();
      }
+     
+     /*
+      *   <update id="reviewUpdate" parameterType="ReviewVO">
+		    UPDATE foodReview SET
+		    msg=#{msg}
+		    WHERE no=#{no}
+		  </update>
+      */
+     public static void reviewUpdate(ReviewVO vo)
+     {
+    	 SqlSession session=ssf.openSession(true);
+    	 session.delete("reviewUpdate",vo);
+    	 session.close();
+     }
+     /*
+      *   <update id="foodReviewCount" parameterType="int">
+		    UPADTE food SET 
+		    replycount=(SELECT COUNT(*) FROM foodReview
+		                WHERE fno=#{fno}
+		    WHERE no=#{fno}
+		  </update>
+      */
+     public static void foodReviewCount(int fno)
+     {
+    	 SqlSession session=ssf.openSession(true);
+    	 session.delete("foodReviewCount",fno);
+    	 session.close();
+     }
 }
